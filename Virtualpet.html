@@ -1,0 +1,163 @@
+
+<html>
+<!-- CS 164 Fall 2017 Name:Nadien-->
+<head>
+<title> Virtual Pest Project</title>
+</head>
+<style>
+	body
+	{
+		background-image: linear-gradient(#32CD32,#fff0c0);
+	}
+	</style>
+<h1> Pet </h1>
+<script type="text/javascript">
+var neutral="http://face4pets.org/wp-content/uploads/2015/06/dog-study2.jpg";
+var crying="https://i.ytimg.com/vi/EBb3G-Flet8/hqdefault.jpg";
+var sleepy="https://media4.s-nbcnews.com/i/newscms/2015_50/897431/dog-sleeping-in-bed-today-stock-tease-151211_cd9853550900e9ecd3678bd8dd6ead7b.jpg";
+var happy="https://i.imgur.com/Tgywof3.jpg";
+var state=0;
+var t_time;
+function setimage()
+{
+if(state == 0) {
+document.getElementById("This is neutral").src = neutral;
+writing.innerHTML="The dog is freaking cute";
+trtime();
+}
+else if(state == 1) {
+document.getElementById("This is neutral").src = crying;
+writing.innerHTML="why hell did you that!";
+trtime();
+}
+else if(state == 2) {
+document.getElementById("This is neutral").src = sleepy;
+writing.innerHTML="Thanks for that";
+trtime();
+}
+else if(state == 3) {
+document.getElementById("This is neutral").src = happy;
+writing.innerHTML="Auhhhhhhhh";
+trtime();
+}
+}
+function Cuddle()
+{
+clearTimeout(t_time);
+if(state == 0) {
+state = 3;
+setimage()
+}
+else if(state == 3) {
+state = 2;
+setimage()
+}
+else if(state == 2) {
+state = 0;
+setimage()
+}
+else if(state == 0) {
+state = 2;
+setimage()
+}
+/*
+document.getElementById("neutral").src="https://i.imgur.com/Tgywof3.jpg";
+count=1;
+writing.innerHTML="The dog is freaking cute";
+trtime();
+*/
+}
+function Hit()
+{
+clearTimeout(t_time);
+if(state == 0) {
+state = 1;
+setimage()
+}
+else if(state == 1) {
+state = 2;
+setimage()
+}
+else if(state == 2) {
+state = 0;
+setimage()
+}
+else if(state == 0) {
+state = 3;
+setimage()
+}
+/*
+document.getElementById("neutral").src="https://i.ytimg.com/vi/EBb3G-Flet8/hqdefault.jpg";
+count=2;
+writing.innerHTML="why hell did you that!";
+trtime();
+*/
+}
+function Feed()
+{
+clearTimeout(t_time);
+if(state == 0) {
+state = 2;
+setimage()
+}
+else if(state == 2) {
+state = 3;
+setimage()
+}
+else if(state == 3) {
+state = 0;
+setimage()
+}
+else if(state == 0) {
+state = 3;
+setimage()
+}
+/*
+document.getElementById("neutral").src="https://keepthetailwagging.com/wp-content/uploads/2017/01/german-shepherd-dog-eating.jpg";
+count=4;
+writing.innerHTML="Thanks for that";
+trtime();
+*/
+}
+function Pet()
+{
+clearTimeout(t_time);
+if(state == 0) {
+state = 3;
+setimage()
+}
+else if(state == 3) {
+state = 2;
+setimage()
+}
+else if(state == 2) {
+state = 0;
+setimage()
+}
+else if(state == 0) {
+state = 3;
+setimage()
+}
+/*
+document.getElementById("neutral").src="https://media4.s-nbcnews.com/i/newscms/2015_50/897431/dog-sleeping-in-bed-today-stock-tease-151211_cd9853550900e9ecd3678bd8dd6ead7b.jpg";
+count=5;
+writing.innerHTML="Auhhhhhhhh";
+trtime();
+*/
+}
+function trtime()
+{
+t_time = setTimeout(Cuddle,8000);
+}
+</script>
+</head>
+<body>
+<img id="This is neutral" src="http://face4pets.org/wp-content/uploads/2015/06/dog-study2.jpg" height=200>
+<button type="button" onclick="Cuddle()"> Cuddle
+<button type="button" onclick="Hit()"> Hit
+<button type="button" onclick="Feed()"> Feed
+<button type="button" onclick="Pet()"> Pet
+</button>
+<p id= 'writing'> </p>
+</body>
+</html>
